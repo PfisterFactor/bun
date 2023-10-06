@@ -50,7 +50,7 @@ pub const JSBundler = struct {
     pub const Config = struct {
         target: Target = Target.browser,
         entry_points: bun.StringSet = bun.StringSet.init(bun.default_allocator),
-        hot: bool = false,
+        watch: bool = false,
         define: bun.StringMap = bun.StringMap.init(bun.default_allocator, false),
         loaders: ?Api.LoaderMap = null,
         dir: OwnedString = OwnedString.initEmpty(bun.default_allocator),
@@ -213,9 +213,9 @@ pub const JSBundler = struct {
                 }
             }
 
-            // if (try config.getOptional(globalThis, "hot", bool)) |hot| {
-            //     this.hot = hot;
-            // }
+             if (try config.getOptional(globalThis, "watch", bool)) |watch| {
+                 this.watch = watch;
+             }
 
             if (try config.getOptional(globalThis, "splitting", bool)) |hot| {
                 this.code_splitting = hot;
@@ -226,20 +226,20 @@ pub const JSBundler = struct {
                 this.outdir.appendSliceExact(slice.slice()) catch unreachable;
             }
 
-            if (config.getTruthy(globalThis, "minify")) |hot| {
-                if (hot.isBoolean()) {
+            if (config.getTruthy(globalThis, "minify")) |minify| {
+                if (minify.isBoolean()) {
                     const value = hot.coerce(bool, globalThis);
                     this.minify.whitespace = value;
                     this.minify.syntax = value;
                     this.minify.identifiers = value;
-                } else if (hot.isObject()) {
-                    if (try hot.getOptional(globalThis, "whitespace", bool)) |whitespace| {
+                } else if (minify.isObject()) {
+                    if (try minify.getOptional(globalThis, "whitespace", bool)) |whitespace| {
                         this.minify.whitespace = whitespace;
                     }
-                    if (try hot.getOptional(globalThis, "syntax", bool)) |syntax| {
+                    if (try minify.getOptional(globalThis, "syntax", bool)) |syntax| {
                         this.minify.syntax = syntax;
                     }
-                    if (try hot.getOptional(globalThis, "identifiers", bool)) |syntax| {
+                    if (try minify.getOptional(globalThis, "identifiers", bool)) |syntax| {
                         this.minify.identifiers = syntax;
                     }
                 } else {
