@@ -1635,8 +1635,8 @@ pub const BundleV2 = struct {
         try bundler.configureDefines();
 
         bundler.resolver.opts = bundler.options;
-
-        var this = try BundleV2.init(bundler, allocator, JSC.AnyEventLoop.init(allocator), false, JSC.WorkPool.get(), heap);
+        var watch = config.watch;
+        var this = try BundleV2.init(bundler, allocator, JSC.AnyEventLoop.init(allocator), watch, JSC.WorkPool.get(), heap);
         this.plugins = completion.plugins;
         this.completion = completion;
         completion.bundler = this;
