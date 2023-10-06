@@ -20,12 +20,11 @@ static const struct CompactHashIndex processBindingConstantsTableIndex[17] = {
 };
 
 static const struct HashTableValue processBindingConstantsTableValues[5] = {
-   { "os"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetOs } },
-   { "fs"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetFs } },
-   { "crypto"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetCrypto } },
-   { "zlib"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetZlib } },
-   { "trace"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetTrace } },
+    { "os"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetOs } },
+    { "fs"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetFs } },
+    { "crypto"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetCrypto } },
+    { "zlib"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetZlib } },
+    { "trace"_s, static_cast<unsigned>(PropertyAttribute::PropertyCallback), NoIntrinsic, { HashTableValue::LazyPropertyType, processBindingConstantsGetTrace } },
 };
 
-static const struct HashTable processBindingConstantsTable =
-    { 5, 15, false, nullptr, processBindingConstantsTableValues, processBindingConstantsTableIndex };
+static const struct HashTable processBindingConstantsTable = { 5, 15, false, nullptr, processBindingConstantsTableValues, processBindingConstantsTableIndex };
