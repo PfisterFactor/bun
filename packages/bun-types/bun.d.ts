@@ -1087,6 +1087,7 @@ declare module "bun" {
           syntax?: boolean;
           identifiers?: boolean;
         };
+    watch?: boolean;
     // treeshaking?: boolean;
 
     // jsx?:
