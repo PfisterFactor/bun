@@ -1166,6 +1166,7 @@ pub const BundleV2 = struct {
             BundleThread.instance.waker.wake() catch {};
         }
 
+        BundleThread.instance.waker.wait() catch {};
         completion.poll_ref.ref(globalThis.bunVM());
 
         return completion.promise.value();
