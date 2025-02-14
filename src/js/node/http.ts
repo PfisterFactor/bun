@@ -1497,21 +1497,40 @@ class ClientRequest extends OutgoingMessage {
   get path() {
     return this.#path;
   }
+  set path(value) {
+    this.#path = value;
+  }
 
   get port() {
     return this.#port;
+  }
+
+  set port(value) {
+    this.#port = value;
   }
 
   get method() {
     return this.#method;
   }
 
+  set method(value) {
+    this.#method = value;
+  }
+
   get host() {
     return this.#host;
   }
 
+  set host(value) {
+    this.#host = value;
+  }
+
   get protocol() {
     return this.#protocol;
+  }
+
+  set protocol(value) {
+    this.#protocol = value;
   }
 
   get agent() {
