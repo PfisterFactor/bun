@@ -68,7 +68,7 @@ jobs:
         run: |
           mkdir -p packaging/rpm/sources
           cp build/release/bun   packaging/rpm/sources/bun
-          cp LICENSE             packaging/rpm/sources/LICENSE
+          cp LICENSE.md          packaging/rpm/sources/LICENSE.md
           ls -lh packaging/rpm/sources/
 
       - name: Compute build metadata

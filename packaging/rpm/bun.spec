@@ -11,7 +11,7 @@ URL:            https://github.com/%{_owner}/bun
 ExclusiveArch:  x86_64 aarch64
 
 Source0:        bun
-Source1:        LICENSE
+Source1:        LICENSE.md
 
 %description
 Bun is a fast all-in-one JavaScript runtime. It bundles TypeScript, JSX, and
@@ -27,10 +27,10 @@ are statically linked.
 
 %install
 install -D -m 0755 %{SOURCE0} %{buildroot}%{_bindir}/bun
-install -D -m 0644 %{SOURCE1} %{buildroot}%{_defaultlicensedir}/%{name}/LICENSE
+install -D -m 0644 %{SOURCE1} %{buildroot}%{_defaultlicensedir}/%{name}/LICENSE.md
 
 %files
-%license %{_defaultlicensedir}/%{name}/LICENSE
+%license %{_defaultlicensedir}/%{name}/LICENSE.md
 %{_bindir}/bun
 
 %changelog
