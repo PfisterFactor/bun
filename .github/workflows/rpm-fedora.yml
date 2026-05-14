@@ -12,7 +12,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  FEDORA_IMAGE: "fedora:41"
+  FEDORA_IMAGE: "fedora:41@sha256:f1a3fab47bcb3c3ddf3135d5ee7ba8b7b25f2e809a47440936212a3a50957f3d"
 
 permissions:
   contents: write
@@ -35,7 +35,7 @@ jobs:
             runner: ubuntu-24.04-arm
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: true
 
@@ -96,7 +96,7 @@ jobs:
             bash packaging/rpm/build-rpm.sh
 
       - name: Upload RPM artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: rpm-${{ matrix.arch }}
           path: packaging/rpm/out/*.rpm
@@ -113,10 +113,10 @@ jobs:
       group: rpm-release
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Download RPM artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           path: rpms
           pattern: rpm-*
@@ -174,12 +174,12 @@ jobs:
           }
 
       - name: Checkout source (for templates)
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           path: src
 
       - name: Download RPM artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           path: new-rpms
           pattern: rpm-*
