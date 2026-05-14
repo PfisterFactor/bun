@@ -1,0 +1,6 @@
+[bun]
+name=bun (fork: {{OWNER}})
+baseurl={{BASE_URL}}/fedora/$basearch
+enabled=1
+gpgcheck=0
+metadata_expire=1h
