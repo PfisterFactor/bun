@@ -1,0 +1,6 @@
+[bun]
+name=bun (fork: PfisterFactor)
+baseurl=https://pfisterfactor.github.io/bun/fedora/$basearch
+enabled=1
+gpgcheck=0
+metadata_expire=1h
